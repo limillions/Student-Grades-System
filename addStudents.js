@@ -22,12 +22,21 @@ let totalGrades = (grades) => {
 
 let addStudent = (id, name, grades) => {
   let studentsData = loadStudents();
-  studentsData.push({
-    studentId: id,
-    studentName: name,
-    StudentGrades: JSON.parse(grades),
-    total: totalGrades(JSON.parse(grades)),
+  let duplicatedId = studentsData.filter((el) => {
+    return el.studentId === id;
   });
+  if (duplicatedId.length === 0) {
+    studentsData.push({
+      studentId: id,
+      studentName: name,
+      StudentGrades: JSON.parse(grades),
+      total: totalGrades(JSON.parse(grades)),
+    });
+    console.log(`DONE, Student Added Successfully `);
+  } else {
+    console.log(`OPPS, This Student's ID Already Exists !`);
+  };
+
   saveToJson(studentsData);
 };
 

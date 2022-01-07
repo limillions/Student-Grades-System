@@ -1,5 +1,6 @@
 const yargs = require("yargs");
 const addStudent = require("./addStudents");
+const deleteStudent = require("./deleteStudent");
 
 // Add Command >>>>
 yargs.command({
@@ -38,8 +39,8 @@ yargs.command({
       type: "number",
     },
   },
-  handler: () => {
-    console.log("delete");
+  handler: (arvg) => {
+    deleteStudent.deleteStudents(arvg.studentId);
   },
 });
 
