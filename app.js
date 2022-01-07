@@ -1,6 +1,8 @@
 const yargs = require("yargs");
 const addStudent = require("./addStudents");
 const deleteStudent = require("./deleteStudent");
+const getStudent = require("./getStudent");
+const listAllStudents = require('./listAllStudents');
 
 // Add Command >>>>
 yargs.command({
@@ -55,8 +57,8 @@ yargs.command({
       type: "number",
     },
   },
-  handler: () => {
-    console.log("read");
+  handler: (arvg) => {
+    getStudent.getStudent(arvg.studentId);
   },
 });
 
@@ -65,7 +67,7 @@ yargs.command({
   command: "list",
   describe: `Get All Student's Names & Total Grades `,
   handler: () => {
-    console.log("list");
+    listAllStudents();
   },
 });
 

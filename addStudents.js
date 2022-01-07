@@ -29,7 +29,7 @@ let addStudent = (id, name, grades) => {
     studentsData.push({
       studentId: id,
       studentName: name,
-      StudentGrades: JSON.parse(grades),
+      studentGrades: JSON.parse(grades),
       total: totalGrades(JSON.parse(grades)),
     });
     console.log(`DONE, Student Added Successfully `);
